@@ -93,7 +93,7 @@ log:
 
 # log存储方式为 mongodb 设置
 mongodb:
-  url: mongodb://10.10.10.10:27017/budwk_v8
+  url: mongodb://127.0.0.1:27017/budwk_v8
 
 database:
   enable: true
@@ -109,7 +109,7 @@ database:
       - com.budwk.app
 jdbc:
   driver: dm.jdbc.driver.DmDriver
-  url: jdbc:dm://10.10.10.10:5236?schema=budwk_v8&databaseProductName=dm mysql&compatibleMode=mysql
+  url: jdbc:dm://127.0.0.1:5236?schema=budwk_v8&databaseProductName=dm mysql&compatibleMode=mysql
   username: SYSDBA
   password: 'pass123'
   validationQuery: select 1

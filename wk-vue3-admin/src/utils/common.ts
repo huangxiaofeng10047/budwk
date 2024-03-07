@@ -112,9 +112,9 @@ export function setTitleFromRoute() {
         let webTitle = platformInfo.AppName
         if(userSettings.dynamicTitle && router.currentRoute.value.meta && router.currentRoute.value.meta.title){
             if ((router.currentRoute.value.meta.title as string).indexOf('pagesTitle.') === -1) {
-                webTitle = router.currentRoute.value.meta.title as string + "｜" +  platformInfo.AppName 
+                webTitle = router.currentRoute.value.meta.title as string + "｜" +  platformInfo.AppName
             } else {
-                webTitle = i18n.global.t(router.currentRoute.value.meta.title as string) + "｜" + platformInfo.AppName  
+                webTitle = i18n.global.t(router.currentRoute.value.meta.title as string) + "｜" + platformInfo.AppName
             }
         }
         document.title = `${webTitle}`
@@ -127,14 +127,14 @@ export function setTitle(title: string) {
 
 
 /**
- * 判断url是否是http或https 
+ * 判断url是否是http或https
  * @param {string} path
  * @returns {Boolean}
  */
 export function isHttp(url: string) {
     return url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1
 }
-  
+
 /**
    * 判断path是否为外链
    * @param {string} path
@@ -143,7 +143,7 @@ export function isHttp(url: string) {
 export function isExternal(path: string) {
     return /^(https?:|mailto:|tel:)/.test(path)
 }
-  
+
 
 /**
    * 返回项目路径
@@ -362,11 +362,11 @@ export const handleTree = (data: any, lazy=false, id='id', parentId='parentId', 
         parentId: parentId,
         childrenList: children
     }
-  
+
     const childrenListMap: any = {}
     const nodeIds:any = {}
     const tree = []
-  
+
     for (const d of data) {
         const parentId = d[config.parentId];
         if (childrenListMap[parentId] == null) {
@@ -378,7 +378,7 @@ export const handleTree = (data: any, lazy=false, id='id', parentId='parentId', 
         nodeIds[d[config.id]] = d;
         childrenListMap[parentId].push(d)
     }
-  
+
     for (const d of data) {
         const parentId = d[config.parentId]
         if (nodeIds[parentId] == null) {
@@ -388,11 +388,11 @@ export const handleTree = (data: any, lazy=false, id='id', parentId='parentId', 
             tree.push(d)
         }
     }
-  
+
     for (const t of tree) {
         adaptToChildrenList(t);
     }
-  
+
     function adaptToChildrenList(o: any) {
         if (childrenListMap[o[config.id]] !== null) {
             o[config.childrenList] = childrenListMap[o[config.id]]
@@ -415,11 +415,11 @@ export const handleTreeWithPath = (data: any, children='children') => {
     const config = {
         childrenList: children
     }
-  
+
     const childrenListMap: any = {}
     const nodeIds:any = {}
     const tree = []
-  
+
     for (const d of data) {
         const parentId = getParentId(d['path'])
         if (childrenListMap[parentId] == null) {
@@ -428,18 +428,18 @@ export const handleTreeWithPath = (data: any, children='children') => {
         nodeIds[d['path']] = d
         childrenListMap[parentId].push(d)
     }
-  
+
     for (const d of data) {
         const parentId = getParentId(d['path'])
         if (nodeIds[parentId] == null) {
             tree.push(d)
         }
     }
-  
+
     for (const t of tree) {
         adaptToChildrenList(t)
     }
-  
+
     function getParentId(path: string) {
         if( path==null || path==undefined) return ''
         return path.substring(0,path.length -4)

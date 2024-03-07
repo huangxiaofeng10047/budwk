@@ -34,7 +34,7 @@ public class NacosConfigureLoader extends YamlConfigureLoader {
     /**
      * Nacos远程地址配置项
      */
-    @PropDoc(value = "Nacos远程地址", defaultValue = "10.10.10.10:8848")
+    @PropDoc(value = "Nacos远程地址", defaultValue = "127.0.0.1:8848")
     public static final String NACOS_ADDR = NACOS_PRE + "server-addr";
     /**
      * Nacos Data ID 配置项
@@ -207,7 +207,7 @@ public class NacosConfigureLoader extends YamlConfigureLoader {
 
     public Properties getNacosConfigProperties() {
         Properties properties = new Properties();
-        properties.put(SERVER_ADDR, conf.get(NACOS_ADDR, "10.10.10.10:8848"));
+        properties.put(SERVER_ADDR, conf.get(NACOS_ADDR, "127.0.0.1:8848"));
         properties.put(ENCODE, conf.get(NACOS_ENCODE, ""));
         properties.put(NAMESPACE, conf.get(NACOS_NAMESPACE, ""));
         properties.put(ACCESS_KEY, conf.get(NACOS_ACCESS_KEY, ""));

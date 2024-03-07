@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { AppMain, TagsView, Settings, Navbar } from './components'
-import Sidebar from './components/Sidebar/index.vue'
+import Sidebar from './components/Sidebar/Index.vue'
 import { useWindowSize } from '@vueuse/core'
 import { computed, onMounted, ref, watchEffect } from 'vue'
 import router from '/@/router'

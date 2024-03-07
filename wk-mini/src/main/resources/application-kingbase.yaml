@@ -93,7 +93,7 @@ log:
 
 # log存储方式为 mongodb 设置
 mongodb:
-  url: mongodb://10.10.10.10:27017/budwk_v8
+  url: mongodb://127.0.0.1:27017/budwk_v8
 
 database:
   enable: true
